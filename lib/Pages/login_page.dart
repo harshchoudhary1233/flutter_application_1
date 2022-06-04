@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -8,6 +10,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   String name = "";
+  bool changeState = false;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -40,9 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                           labelText: "Username"),
                       onChanged: (value) {
                         name = value;
-                        setState(() {
-                          
-                        });
+                        setState(() {});
                       },
                     ),
                     TextFormField(
@@ -53,12 +54,50 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 20,
                     ),
-                    ElevatedButton(
-                        style: TextButton.styleFrom(),
-                        onPressed: () {
-                          Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    // inkwell makes container clickable, we can also use gesture detector but inkwell shows some click efffects.
+                    Material(
+                      color: changeState ? Colors.green : Colors.deepPurple,
+                      borderRadius: changeState? BorderRadius.circular(22): BorderRadius.circular(20),
+                      child: InkWell(
+                        onTap: () async {
+                          setState(() {
+                            changeState = true;
+                          });
+                          await Future.delayed(Duration(seconds: 1));
+                         // Navigator.pushNamed(context, MyRoutes.homeRoute);
                         },
-                        child: Text("Sign in"))
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width: changeState ? 40 : 150,
+                          height: 40,
+                          alignment: Alignment.center,
+                          child: changeState
+                              ? Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
+                              : Text("Login",
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontStyle: FontStyle.italic,
+                                    color: Colors.white,
+                                  )),
+                          // decoration: BoxDecoration(
+                          //   shape: changeState
+                          //       ? BoxShape.circle
+                          //       : BoxShape.rectangle,
+                          //   color: changeState ? Colors.green : Colors.deepPurple,
+                          //   // borderRadius: BorderRadius.circular(22)
+                          // ),
+                        ),
+                      ),
+                    )
+                    // ElevatedButton(
+                    //     style: TextButton.styleFrom(),
+                    //     onPressed: () {
+                    //       Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    //     },
+                    //     child: Text("Sign in"))
                   ],
                 ),
               )
