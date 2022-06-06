@@ -15,7 +15,12 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
       children: [
-        CatalogImage(image: catalog.image)
+        Hero(
+          tag: Key(catalog.id),
+          child: CatalogImage(
+            image: catalog.image
+            )
+            )
         ,Expanded(child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -34,11 +39,11 @@ class CatalogItem extends StatelessWidget {
               onPressed: () {
               
             }, 
-            style: ButtonStyle(
+            style:ButtonStyle(
               shape: MaterialStateProperty.all(StadiumBorder())
             ),
             
-            child: "Buy".text.make(),
+            child: "Add to cart".text.make (),
             )
             ],).pOnly(right: 8.0)
         ],
