@@ -4,7 +4,7 @@ import 'package:flutter_application_1/Pages/login_page.dart';
 
 class MyDrawer extends StatelessWidget {
   String a = LoginPageState().name;
-  String url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapercave.com%2Flogin-page-wallpapers&psig=AOvVaw2p_DCKqHexMgoE01LEURXc&ust=1654441675920000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCMDCx-eJlPgCFQAAAAAdAAAAABAD";
+  String url = "https://wallpapercave.com/dwp2x/wp9764093.jpg";
   String imageUrl =
       "https://media-exp1.licdn.com/dms/image/C4D03AQGvJDm49Pd76w/profile-displayphoto-shrink_800_800/0/1653980127911?e=1659571200&v=beta&t=5lZ2e09JO_qin98QW3cssWcujWNHYdx1KR5gpPWI4-w";
   //const MyDrawer({Key? key}) : super(key: key);
@@ -15,7 +15,10 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-              padding: EdgeInsets.zero,
+            //  decoration: BoxDecoration(
+               
+            //        image: DecorationImage(image: NetworkImage(url),scale:0.0004)),
+               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
                 accountName: Text(LoginPageState().name),
@@ -23,8 +26,7 @@ class MyDrawer extends StatelessWidget {
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage(imageUrl),
                 ),
-                decoration: BoxDecoration(
-                    image: DecorationImage(image: NetworkImage(url))),
+               
               )),
           ListTile(
             leading: Icon(CupertinoIcons.home),

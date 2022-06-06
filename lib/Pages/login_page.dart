@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 class LoginPage extends StatefulWidget {
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginPage> createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LoginPageState extends State<LoginPage> {
   String name = "";
   bool changeState = false;
   final _formKey = GlobalKey<FormState>();
 
   moveToHome(BuildContext context) async {
-    if (_formKey.currentState!.validate() ) {
+    if (_formKey.currentState!.validate()) {
       setState(() {
         changeState = true;
       });
@@ -68,7 +69,6 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                       TextFormField(
-                        
                         obscureText: true,
                         decoration: InputDecoration(
                             hintText: "Enter password", labelText: "Password"),
@@ -134,3 +134,5 @@ class _LoginPageState extends State<LoginPage> {
         ));
   }
 }
+
+
