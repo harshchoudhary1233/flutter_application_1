@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/catalog.dart';
-import 'package:flutter_application_1/widgets/themes.dart';
+import 'package:flutter_application_1/widgets/home_widgets/addToCart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class HomeDetailPage extends StatefulWidget {
+class HomeDetailPage extends StatelessWidget {
   const HomeDetailPage({Key? key, required this.catalog}) : super(key: key);
   final Item catalog;
 
-  @override
-  State<HomeDetailPage> createState() => _HomeDetailPageState();
-}
-
-class _HomeDetailPageState extends State<HomeDetailPage> {
+  
+ 
+  
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -25,14 +24,8 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: Vx.m0,
           children: [
-            "\$${widget.catalog.price}".text.bold.xl4.red800.make(),
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Theme.of(context).colorScheme.primary),
-                  shape: MaterialStateProperty.all(StadiumBorder())),
-              child: "Add to cart".text.make(),
-            )
+            "\$${catalog.price}".text.bold.xl4.red800.make(),
+            AddToCart(catalog:catalog),
           ],
         ).p32(),
       ),
@@ -40,8 +33,8 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
         bottom: false,
         child: Column(children: [
           Hero(
-                  tag: Key(widget.catalog.id),
-                  child: Image.network(widget.catalog.image))
+                  tag: Key(catalog.id),
+                  child: Image.network(catalog.image))
               .p16(),
           Expanded(
             child: VxArc(
@@ -52,8 +45,8 @@ class _HomeDetailPageState extends State<HomeDetailPage> {
                 color: context.canvasColor,
                 width: context.screenWidth,
                 child: Column(children: [
-                  widget.catalog.name.text.xl4.bold.make(),
-                  widget.catalog.desc.text
+                  catalog.name.text.xl4.bold.make(),
+                  catalog.desc.text
                       .textStyle(context.captionStyle)
                       .xl
                       .make(),

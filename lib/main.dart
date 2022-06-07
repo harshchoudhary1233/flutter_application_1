@@ -1,15 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/cart_page.dart';
-import 'package:flutter_application_1/Pages/home_detail_page.dart';
 import 'package:flutter_application_1/Pages/homepage.dart';
 import 'package:flutter_application_1/Pages/login_page.dart';
+import 'package:flutter_application_1/core/store.dart';
+import 'package:flutter_application_1/models/cart.dart';
+import 'package:flutter_application_1/models/catalog.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:flutter_application_1/widgets/themes.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(VxState(
+    store: MyStore(cart: CartModel.cartModel,catalog: CatalogModel.catalogModel),
+    child: MyApp()
+    )
+    );
   
 }
 
