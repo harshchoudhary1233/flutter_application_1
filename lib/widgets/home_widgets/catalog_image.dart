@@ -9,7 +9,9 @@ class CatalogImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.network(image)
         .box
+        
         .p8
+        .color(context.cardColor)
         .roundedLg
         .make()
         .p16()

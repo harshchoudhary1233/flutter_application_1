@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/cart_page.dart';
+import 'package:flutter_application_1/Pages/home_detail_page.dart';
 import 'package:flutter_application_1/Pages/homepage.dart';
 import 'package:flutter_application_1/Pages/login_page.dart';
 import 'package:flutter_application_1/utils/routes.dart';
@@ -21,16 +22,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
      // home : Homepage(), app start hone p agr homepage khulna chie to ya to home : Homepage() esa likh do ya for line 25 m jsa likha h vsa dono m se koi ek
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       darkTheme: MyTheme.darkTheme(context),
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
       initialRoute: "/", // ye ni likhta  to "/" ye jis page k samne hota h vo page se app start hota
       routes: {
-        "/" :(context) => Homepage(),
+        "/" :(context) => CartPage(),
         MyRoutes.homeRoute:(context) => Homepage() ,// "/"" is used to set homepage as initial page, isme loading wala button kse lgate h vo v bta rkha h by using circular progress indicator
         MyRoutes.loginRoute:(context) => LoginPage(),
-         MyRoutes.cartRoute:(context) => CartPage()
+        MyRoutes.cartRoute:(context) => CartPage(),
+        
+
       },
       
     );

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -27,7 +28,7 @@ class LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -87,7 +88,7 @@ class LoginPageState extends State<LoginPage> {
                       ),
                       // inkwell makes container clickable, we can also use gesture detector but inkwell shows some click efffects.
                       Material(
-                        color: changeState ? Colors.green : Colors.deepPurple,
+                        color: changeState ? Colors.green : Theme.of(context).colorScheme.primary,
                         borderRadius: changeState
                             ? BorderRadius.circular(22)
                             : BorderRadius.circular(20),

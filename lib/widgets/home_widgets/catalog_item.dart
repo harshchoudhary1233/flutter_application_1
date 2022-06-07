@@ -15,41 +15,31 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
       children: [
-        Hero(
-          tag: Key(catalog.id),
-          child: CatalogImage(
-            image: catalog.image
-            )
-            )
-        ,Expanded(child: Column(
+        Hero(tag: Key(catalog.id), child: CatalogImage(image: catalog.image)),
+        Expanded(
+            child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          catalog.name.text.xl.bold.make(),
-          catalog.desc.text.textStyle(context.captionStyle).make(),
-          10.heightBox,
-          ButtonBar(
-            alignment : MainAxisAlignment.spaceBetween,
-            buttonPadding: Vx.m0,
-            children: [
-            
-            catalog.price.text.bold.xl.make(),
-            ElevatedButton(
-              
-              onPressed: () {
-              
-            }, 
-            style:ButtonStyle(
-              shape: MaterialStateProperty.all(StadiumBorder())
-            ),
-            
-            child: "Add to cart".text.make (),
-            )
-            ],).pOnly(right: 8.0)
-        ],
-        )
-        )
+            catalog.name.text.xl.bold.make(),
+            catalog.desc.text.textStyle(context.captionStyle).make(),
+            10.heightBox,
+            ButtonBar(
+              alignment: MainAxisAlignment.spaceBetween,
+              buttonPadding: Vx.m0,
+              children: [
+                "\$${catalog.price}".text.bold.xl.make(),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                      shape: MaterialStateProperty.all(StadiumBorder())),
+                  child: "Add to cart".text.make(),
+                )
+              ],
+            ).pOnly(right: 8.0)
+          ],
+        ))
       ],
-    )).white.roundedLg.square(200).color(MyTheme.creamColor).make().py16();
+    )).rounded.square(200).color(context.cardColor).make().py16();
   }
 }

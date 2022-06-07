@@ -1,4 +1,4 @@
-import 'dart:html';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,16 +40,21 @@ class _HomepageState extends State<Homepage> {
     setState(() {});
   }
 
+  static bool isButtonDark = false;
+
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, MyRoutes.cartRoute);
         },
-        backgroundColor: MyTheme.darkBluish,
-        child: Icon(CupertinoIcons.cart),
+        backgroundColor: Theme.of(context).colorScheme.primary,// mne ye use kia kuki buttonColor deprecate hogya
+        child: Icon(
+          CupertinoIcons.cart,color: context.canvasColor,
+          ),
       ),
       body: SafeArea(
         child: Container(
