@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: "/", // ye ni likhta  to "/" ye jis page k samne hota h vo page se app start hota
       routes: {
-        "/" :(context) => CartPage(),
+        "/" :(context) => Homepage(),
         MyRoutes.homeRoute:(context) => Homepage() ,// "/"" is used to set homepage as initial page, isme loading wala button kse lgate h vo v bta rkha h by using circular progress indicator
         MyRoutes.loginRoute:(context) => LoginPage(),
         MyRoutes.cartRoute:(context) => CartPage(),

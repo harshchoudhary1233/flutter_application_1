@@ -4,6 +4,10 @@ import 'dart:convert';
 // ignore_for_file: non_constant_identifier_names
 
 class CatalogModel {
+
+  static final catalogModel = CatalogModel._internal();
+  CatalogModel._internal();
+  factory CatalogModel() => catalogModel;
   static List<Item> items = [
     Item(
         id: "p1",
